@@ -1,0 +1,12 @@
+.CartItemCard {
+  margin: 10px auto;
+  max-width: 50%;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  background-color: #ffffff;
+  border:  2px solid cadetblue;
+  img {
+    max-width: 10%;
+  }
+}

@@ -1,0 +1,60 @@
+export enum actionTypes {
+  LOAD_PRODUCTS = "LOAD_PRODUCTS",
+  LOAD_PRODUCTS_SUCCESS = "LOAD_PRODUCTS_SUCCESS",
+  LOAD_PRODUCTS_FAILURE = "LOAD_PRODUCTS_FAILURE",
+  CHANGE_QUANTITY = "CHANGE_QUANTITY",
+  DELETE_PRODUCT = "DELETE_PRODUCT",
+  ADD_PRODUCT = "ADD_PRODUCT"
+}
+
+export type CartProductType = {
+  id: number
+  name: string
+  price: number
+  quantity: number
+  imgUrl: string
+}
+
+export type CartStateType = {
+  data: Array<CartProductType>
+  isLoading: boolean
+  error: null | string
+  totalPrice: number
+}
+
+type LoadProductsType = {
+  type: actionTypes.LOAD_PRODUCTS
+}
+
+type LoadProductSuccessType = {
+  type: actionTypes.LOAD_PRODUCTS_SUCCESS
+  payload: CartProductType[]
+}
+
+type LoadProductsFailureType = {
+  type: actionTypes.LOAD_PRODUCTS_FAILURE
+  payload: string
+}
+
+type ChangeQuantityType = {
+  type: actionTypes.CHANGE_QUANTITY
+  payload: {
+    id: number
+    quantityChanger: number
+  }
+}
+
+type DeleteProductType = {
+  type: actionTypes.DELETE_PRODUCT
+  payload: {
+    id: number
+  }
+}
+
+
+export type ActionTypes =
+  | LoadProductsType
+  | LoadProductSuccessType
+  | LoadProductsFailureType
+  | ChangeQuantityType
+  | DeleteProductType

@@ -1,0 +1,1 @@
+export const SummaryBlock = () => <div>Summary</div>

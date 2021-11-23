@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FC, useEffect } from "react";
+import { Cart } from "./components/Cart/Cart";
+import { useAppDispatch, useAppSelector } from "./hooks/hooks";
+import { actionTypes } from "./store/types";
+import { SummaryBlock } from "./components/SummaryBlock/SummaryBlock";
+import s from "./App.module.css";
+import { getLoadingStatus } from "./store/selectors/selectors";
+import { loadProducts } from "./store/actions/actions";
 
-function App() {
+const App: FC = () => {
+  const dispatch = useAppDispatch();
+  const isLoading = useAppSelector(getLoadingStatus);
+  useEffect(() => dispatch(loadProducts()), []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 className={s.header}>Shopping cart</h1>
+      {isLoading
+        ? <p>Loading...</p>
+        : <div className={s.mainPart}>
+          <Cart/>
+          <SummaryBlock/>
+        </div>
+      }
+
     </div>
   );
-}
+
+};
+
 
 export default App;

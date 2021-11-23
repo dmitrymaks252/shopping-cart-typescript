@@ -1,0 +1,14 @@
+.CartItemCard {
+  margin: 10px auto;
+  max-width: 50%;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  background-color: #ffffff;
+  border: 2px solid cadetblue;
+}
+.CartItemCard img {
+  max-width: 10%;
+}
+
+/*# sourceMappingURL=CartItem.module.css.map */
