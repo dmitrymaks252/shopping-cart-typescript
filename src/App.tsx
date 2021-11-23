@@ -14,14 +14,14 @@ const App: FC = () => {
   return (
     <div>
       <h1 className={s.header}>Shopping cart</h1>
-      {isLoading
-        ? <p>Loading...</p>
-        : <div className={s.mainPart}>
-          <Cart/>
-          <SummaryBlock/>
-        </div>
+      {
+        isLoading
+          ? <p>Loading...</p>
+          : <div className={s.mainPart}>
+            <Cart/>
+            <SummaryBlock/>
+          </div>
       }
-
     </div>
   );
 

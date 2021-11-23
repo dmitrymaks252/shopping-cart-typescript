@@ -19,7 +19,6 @@ export type CartStateType = {
   data: Array<CartProductType>
   isLoading: boolean
   error: null | string
-  totalPrice: number
 }
 
 type LoadProductsType = {

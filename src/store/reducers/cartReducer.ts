@@ -4,8 +4,7 @@ import { actionTypes, ActionTypes, CartStateType } from "../types";
 const initialState: CartStateType = {
   data: [],
   isLoading: false,
-  error: null,
-  totalPrice: 0
+  error: null
 };
 
 export default function cartReducer(state = initialState, action: ActionTypes): CartStateType {
