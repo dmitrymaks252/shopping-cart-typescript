@@ -6,6 +6,7 @@ import { SummaryBlock } from "./components/SummaryBlock/SummaryBlock";
 import s from "./App.module.css";
 import { getLoadingStatus } from "./store/selectors/selectors";
 import { loadProducts } from "./store/actions/actions";
+import { AddNewItemForm } from "./components/AddNewItemForm/AddNewItemForm";
 
 const App: FC = () => {
   const dispatch = useAppDispatch();
@@ -22,6 +23,7 @@ const App: FC = () => {
             <SummaryBlock/>
           </div>
       }
+      <AddNewItemForm/>
     </div>
   );
 

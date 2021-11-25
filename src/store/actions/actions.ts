@@ -1,4 +1,4 @@
-import { ActionTypes, actionTypes } from "../types";
+import { ActionTypes, actionTypes, FormValuesType } from "../types";
 
 export const loadProducts = (): ActionTypes => ({
   type: actionTypes.LOAD_PRODUCTS
@@ -14,3 +14,7 @@ export const deleteProduct = (payload: {id: number}): ActionTypes => ({
   payload
 })
 
+export const addProduct = (payload: FormValuesType): ActionTypes => ({
+  type: actionTypes.ADD_PRODUCT,
+  payload
+})

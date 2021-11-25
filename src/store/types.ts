@@ -21,6 +21,13 @@ export type CartStateType = {
   error: null | string
 }
 
+export type FormValuesType = {
+  name: string
+  price: number
+  quantity: number
+}
+
+//Redux Action types
 type LoadProductsType = {
   type: actionTypes.LOAD_PRODUCTS
 }
@@ -50,6 +57,10 @@ type DeleteProductType = {
   }
 }
 
+type AddProductType = {
+  type: actionTypes.ADD_PRODUCT
+  payload: FormValuesType
+}
 
 export type ActionTypes =
   | LoadProductsType
@@ -57,3 +68,4 @@ export type ActionTypes =
   | LoadProductsFailureType
   | ChangeQuantityType
   | DeleteProductType
+  | AddProductType

@@ -1,4 +1,4 @@
-import { actionTypes, ActionTypes, CartStateType } from "../types";
+import { actionTypes, ActionTypes, CartProductType, CartStateType } from "../types";
 
 
 const initialState: CartStateType = {
@@ -39,6 +39,16 @@ export default function cartReducer(state = initialState, action: ActionTypes): 
       return {
         ...state,
         data: state.data.filter(el => el.id !== action.payload.id)
+      }
+    case actionTypes.ADD_PRODUCT:
+      const newProductItem: CartProductType = {
+        ...action.payload,
+        id: Math.random(),
+        imgUrl: ''
+      }
+      return {
+        ...state,
+        data: [newProductItem, ...state.data]
       }
     default:
       return state;
