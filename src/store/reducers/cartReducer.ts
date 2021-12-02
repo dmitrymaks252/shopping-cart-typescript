@@ -1,7 +1,7 @@
 import { actionTypes, ActionTypes, CartProductType, CartStateType } from "../types";
 
 
-const initialState: CartStateType = {
+export const initialState: CartStateType = {
   data: [],
   isLoading: false,
   error: null
@@ -44,7 +44,7 @@ export default function cartReducer(state = initialState, action: ActionTypes): 
       const newProductItem: CartProductType = {
         ...action.payload,
         id: Math.random(),
-        imgUrl: ''
+        imgUrl: 'https://grassrootscha.com/wp-content/uploads/2018/11/shutterstock_161251868-1.jpg'
       }
       return {
         ...state,

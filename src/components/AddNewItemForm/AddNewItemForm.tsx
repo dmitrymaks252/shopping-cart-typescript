@@ -8,14 +8,12 @@ import { addProduct } from "../../store/actions/actions";
 
 export const AddNewItemForm: FC = () => {
   const dispatch = useAppDispatch()
-
   const {
     register,
     reset,
     handleSubmit,
     formState: {errors}
   } = useForm<FormValuesType>();
-
   const onSubmit = (data: FormValuesType) => {
     dispatch(addProduct(data))
     reset()
@@ -48,7 +46,6 @@ export const AddNewItemForm: FC = () => {
           register={register}
         />
       </label>
-
       <label>
         {errors.quantity?.type === "required"
           ? <span>Field is required</span>
@@ -65,7 +62,6 @@ export const AddNewItemForm: FC = () => {
           register={register}
         />
       </label>
-
       <input type="submit"/>
     </form>
   );

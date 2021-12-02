@@ -1,15 +1,18 @@
 import { takeLatest, call, put, all } from "redux-saga/effects";
-import { actionTypes } from "../types";
+import { actionTypes, CartProductType } from "../types";
 import axios, { AxiosResponse } from "axios";
+import { loadProductsFailure, loadProductsSuccess } from "../actions/actions";
 
 function* workerSaga() {
   try {
-    const response: AxiosResponse = yield call(axios, "https://my-json-server.typicode.com/dmitrymaks252/dmitrymaks252/products");
-    console.log(response); //todo: delete before production
-    yield put({type: actionTypes.LOAD_PRODUCTS_SUCCESS, payload: response.data});
+    const {data}: AxiosResponse<Array<CartProductType>> = yield call(axios, "https://my-json-server.typicode.com/dmitrymaks252/dmitrymaks252/products");
+    console.log(data); //todo: delete before production
+    yield put(loadProductsSuccess(data));
   } catch (e) {
-    alert(e);
-    yield put({type: actionTypes.LOAD_PRODUCTS_FAILURE, payload: e});
+    window.alert(e);
+    if (e instanceof Error) {
+      yield put(loadProductsFailure(e.message));
+    }
   }
 
 }

@@ -1,20 +1,31 @@
-import { ActionTypes, actionTypes, FormValuesType } from "../types";
+import { ActionTypes, actionTypes, CartProductType, FormValuesType } from "../types";
 
 export const loadProducts = (): ActionTypes => ({
   type: actionTypes.LOAD_PRODUCTS
+});
+
+export const loadProductsSuccess = (payload : Array<CartProductType>): ActionTypes => ({
+  type: actionTypes.LOAD_PRODUCTS_SUCCESS,
+  payload
 })
 
-export const changeQuantity = (payload: {id: number, quantityChanger: number}): ActionTypes => ({
+export const loadProductsFailure = (payload: string): ActionTypes => ({
+  type: actionTypes.LOAD_PRODUCTS_FAILURE,
+  payload
+});
+
+export const changeQuantity = (payload: { id: number, quantityChanger: number }): ActionTypes => ({
   type: actionTypes.CHANGE_QUANTITY,
   payload
 });
 
-export const deleteProduct = (payload: {id: number}): ActionTypes => ({
+export const deleteProduct = (payload: { id: number }): ActionTypes => ({
   type: actionTypes.DELETE_PRODUCT,
   payload
-})
+});
 
 export const addProduct = (payload: FormValuesType): ActionTypes => ({
   type: actionTypes.ADD_PRODUCT,
   payload
-})
+});
+

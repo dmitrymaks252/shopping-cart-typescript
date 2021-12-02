@@ -38,7 +38,7 @@ export const CartItem: FC<PropsType> = ({item}) => {
         <button onClick={handleRemove}>Remove</button>
       </div>
       <div>
-        <button onClick={handleDecrement}>-</button>
+        <button disabled={item.quantity === 1} onClick={handleDecrement}>-</button>
         <p>{item.quantity}</p>
         <button onClick={handleIncrement}>+</button>
       </div>

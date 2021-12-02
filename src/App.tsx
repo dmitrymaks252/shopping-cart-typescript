@@ -3,7 +3,7 @@ import { Cart } from "./components/Cart/Cart";
 import { useAppDispatch, useAppSelector } from "./hooks/hooks";
 import { actionTypes } from "./store/types";
 import { SummaryBlock } from "./components/SummaryBlock/SummaryBlock";
-import s from "./App.module.css";
+import s from "./App.module.scss";
 import { getLoadingStatus } from "./store/selectors/selectors";
 import { loadProducts } from "./store/actions/actions";
 import { AddNewItemForm } from "./components/AddNewItemForm/AddNewItemForm";

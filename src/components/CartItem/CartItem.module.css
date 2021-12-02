@@ -6,9 +6,11 @@
   display: flex;
   background-color: #ffffff;
   border: 2px solid cadetblue;
+  border-bottom-left-radius: 25px;
+  overflow: hidden;
 }
 .CartItemCard img {
-  max-width: 10%;
+  max-width: 20%;
 }
 
 /*# sourceMappingURL=CartItem.module.css.map */

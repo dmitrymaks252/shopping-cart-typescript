@@ -5,8 +5,11 @@
   align-items: center;
   display: flex;
   background-color: #ffffff;
-  border:  2px solid cadetblue;
+  border: 2px solid cadetblue;
+  border-bottom-left-radius: 25px;
+  overflow: hidden;
+
   img {
-    max-width: 10%;
+    max-width: 20%;
   }
 }
