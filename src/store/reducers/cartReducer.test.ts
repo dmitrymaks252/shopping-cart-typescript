@@ -2,12 +2,12 @@ import reducer, { initialState } from "./cartReducer";
 import { ActionTypes, actionTypes, CartProductType } from "../types";
 
 beforeEach(() => {
-  jest.spyOn(global.Math, 'random').mockReturnValue(0.123456789);
+  jest.spyOn(global.Math, "random").mockReturnValue(0.123456789);
 });
 
 afterEach(() => {
-  jest.spyOn(global.Math, 'random').mockRestore();
-})
+  jest.spyOn(global.Math, "random").mockRestore();
+});
 
 export const testCartItem: CartProductType = {
   id: 1,
@@ -76,9 +76,9 @@ describe("cart reducer", () => {
       .toEqual({...initialState, data: [{...testCartItem, quantity: 1}]});
   });
 
-  it("DELETE_PRODUCT", () => {
+  it("REMOVE_PRODUCT", () => {
     const action: ActionTypes = {
-      type: actionTypes.DELETE_PRODUCT,
+      type: actionTypes.REMOVE_PRODUCT,
       payload: {id: 1}
     };
     expect(reducer({...initialState, data: [testCartItem]}, action))
@@ -89,13 +89,17 @@ describe("cart reducer", () => {
     const action: ActionTypes = {
       type: actionTypes.ADD_PRODUCT,
       payload: {
-        name: 'New product',
+        name: "New product",
         quantity: 1,
         price: 1
       }
-    }
-    const newItem = {...action.payload, id: Math.random(), imgUrl: 'https://grassrootscha.com/wp-content/uploads/2018/11/shutterstock_161251868-1.jpg'}
+    };
+    const newItem = {
+      ...action.payload,
+      id: Math.random(),
+      imgUrl: "https://grassrootscha.com/wp-content/uploads/2018/11/shutterstock_161251868-1.jpg"
+    };
     expect(reducer({...initialState, data: [testCartItem]}, action))
-      .toEqual({...initialState, data: [newItem, testCartItem]})
+      .toEqual({...initialState, data: [newItem, testCartItem]});
   });
 });

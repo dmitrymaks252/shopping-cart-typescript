@@ -29,27 +29,27 @@ export default function cartReducer(state = initialState, action: ActionTypes): 
     case actionTypes.CHANGE_QUANTITY:
       return {
         ...state,
-        data: state.data.map(el=>
+        data: state.data.map(el =>
           el.id === action.payload.id
-            ? { ...el, quantity: el.quantity + action.payload.quantityChanger}
+            ? {...el, quantity: el.quantity + action.payload.quantityChanger}
             : el
         )
-      }
-    case actionTypes.DELETE_PRODUCT:
+      };
+    case actionTypes.REMOVE_PRODUCT:
       return {
         ...state,
         data: state.data.filter(el => el.id !== action.payload.id)
-      }
+      };
     case actionTypes.ADD_PRODUCT:
       const newProductItem: CartProductType = {
         ...action.payload,
         id: Math.random(),
-        imgUrl: 'https://grassrootscha.com/wp-content/uploads/2018/11/shutterstock_161251868-1.jpg'
-      }
+        imgUrl: "https://grassrootscha.com/wp-content/uploads/2018/11/shutterstock_161251868-1.jpg"
+      };
       return {
         ...state,
         data: [newProductItem, ...state.data]
-      }
+      };
     default:
       return state;
   }

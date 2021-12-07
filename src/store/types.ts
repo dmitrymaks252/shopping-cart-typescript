@@ -3,7 +3,7 @@ export enum actionTypes {
   LOAD_PRODUCTS_SUCCESS = "LOAD_PRODUCTS_SUCCESS",
   LOAD_PRODUCTS_FAILURE = "LOAD_PRODUCTS_FAILURE",
   CHANGE_QUANTITY = "CHANGE_QUANTITY",
-  DELETE_PRODUCT = "DELETE_PRODUCT",
+  REMOVE_PRODUCT = "REMOVE_PRODUCT",
   ADD_PRODUCT = "ADD_PRODUCT"
 }
 
@@ -51,7 +51,7 @@ type ChangeQuantityType = {
 }
 
 type DeleteProductType = {
-  type: actionTypes.DELETE_PRODUCT
+  type: actionTypes.REMOVE_PRODUCT
   payload: {
     id: number
   }

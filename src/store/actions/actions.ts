@@ -4,10 +4,10 @@ export const loadProducts = (): ActionTypes => ({
   type: actionTypes.LOAD_PRODUCTS
 });
 
-export const loadProductsSuccess = (payload : Array<CartProductType>): ActionTypes => ({
+export const loadProductsSuccess = (payload: Array<CartProductType>): ActionTypes => ({
   type: actionTypes.LOAD_PRODUCTS_SUCCESS,
   payload
-})
+});
 
 export const loadProductsFailure = (payload: string): ActionTypes => ({
   type: actionTypes.LOAD_PRODUCTS_FAILURE,
@@ -19,8 +19,8 @@ export const changeQuantity = (payload: { id: number, quantityChanger: number })
   payload
 });
 
-export const deleteProduct = (payload: { id: number }): ActionTypes => ({
-  type: actionTypes.DELETE_PRODUCT,
+export const removeProduct = (payload: { id: number }): ActionTypes => ({
+  type: actionTypes.REMOVE_PRODUCT,
   payload
 });
 

@@ -4,10 +4,11 @@ import { Input } from "../Input/Input";
 import { useAppDispatch } from "../../hooks/hooks";
 import { FormValuesType } from "../../store/types";
 import { addProduct } from "../../store/actions/actions";
+import s from "./AddNewItemForm.module.scss";
 
 
 export const AddNewItemForm: FC = () => {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   const {
     register,
     reset,
@@ -15,54 +16,57 @@ export const AddNewItemForm: FC = () => {
     formState: {errors}
   } = useForm<FormValuesType>();
   const onSubmit = (data: FormValuesType) => {
-    dispatch(addProduct(data))
-    reset()
+    dispatch(addProduct(data));
+    reset();
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
       <label>
-        {errors.name && (<span>Field is required </span>)}
+        Name:
         <Input
           label={"name"}
           type={"string"}
           required
           register={register}
         />
+        {errors.name && (<p className={s.requiredInput}>Field is required </p>)}
       </label>
       <label>
-        {errors.price?.type === "required"
-          ? (<span>Field is required</span>)
-          : errors.price?.type === "min"
-            ? <span>Price cannot be below zero</span>
-            : errors.price?.type === 'max'
-              ? <span>Maximum number length is 10 digits</span>
-              : null
-        }
+        Price:
         <Input
           type={"number"}
           label={"price"}
           required
           register={register}
         />
-      </label>
-      <label>
-        {errors.quantity?.type === "required"
-          ? <span>Field is required</span>
-          : errors.quantity?.type === "min"
-            ? <span>Quantity cannot be below zero</span>
-            :  errors.quantity?.type === "max"
-              ? <span>Maximum number length is 10 digits</span>
+        {errors.price?.type === "required"
+          ? <p className={s.requiredInput}>Field is required</p>
+          : errors.price?.type === "min"
+            ? <p className={s.requiredInput}>Price cannot be below zero</p>
+            : errors.price?.type === "max"
+              ? <p className={s.requiredInput}>Maximum number length is 10 digits</p>
               : null
         }
+      </label>
+      <label>
+        Quantity:
         <Input
           type={"number"}
           label={"quantity"}
           required
           register={register}
         />
+        {errors.quantity?.type === "required"
+          ? <p className={s.requiredInput}>Field is required</p>
+          : errors.quantity?.type === "min"
+            ? <p className={s.requiredInput}>Quantity cannot be below zero</p>
+            : errors.quantity?.type === "max"
+              ? <p className={s.requiredInput}>Maximum number length is 10 digits</p>
+              : null
+        }
       </label>
-      <input type="submit"/>
+      <button className={s.addNewProductBtn}>Add new item</button>
     </form>
   );
 };

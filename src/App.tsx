@@ -1,33 +1,21 @@
-import React, { FC, useEffect } from "react";
-import { Cart } from "./components/Cart/Cart";
-import { useAppDispatch, useAppSelector } from "./hooks/hooks";
-import { actionTypes } from "./store/types";
-import { SummaryBlock } from "./components/SummaryBlock/SummaryBlock";
-import s from "./App.module.scss";
-import { getLoadingStatus } from "./store/selectors/selectors";
-import { loadProducts } from "./store/actions/actions";
-import { AddNewItemForm } from "./components/AddNewItemForm/AddNewItemForm";
+import React, { FC } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./store/store";
+import ShoppingCartPage from "./pages/App/ShoppingCartPage";
 
 const App: FC = () => {
-  const dispatch = useAppDispatch();
-  const isLoading = useAppSelector(getLoadingStatus);
-  useEffect(() => dispatch(loadProducts()), []);
   return (
-    <div>
-      <h1 className={s.header}>Shopping cart</h1>
-      {
-        isLoading
-          ? <p>Loading...</p>
-          : <div className={s.mainPart}>
-            <Cart/>
-            <SummaryBlock/>
-          </div>
-      }
-      <AddNewItemForm/>
-    </div>
+    <React.StrictMode>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Routes>
+            <Route path={"/"} element={<ShoppingCartPage/>}/>
+          </Routes>
+        </BrowserRouter>
+      </Provider>
+    </React.StrictMode>
   );
-
 };
-
 
 export default App;

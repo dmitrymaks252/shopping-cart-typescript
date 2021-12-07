@@ -6,7 +6,6 @@ import { loadProductsFailure, loadProductsSuccess } from "../actions/actions";
 function* workerSaga() {
   try {
     const {data}: AxiosResponse<Array<CartProductType>> = yield call(axios, "https://my-json-server.typicode.com/dmitrymaks252/dmitrymaks252/products");
-    console.log(data); //todo: delete before production
     yield put(loadProductsSuccess(data));
   } catch (e) {
     window.alert(e);
@@ -14,7 +13,6 @@ function* workerSaga() {
       yield put(loadProductsFailure(e.message));
     }
   }
-
 }
 
 function* watcherSaga() {

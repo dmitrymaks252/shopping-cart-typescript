@@ -1,16 +1,78 @@
-.CartItemCard {
-  margin: 10px auto;
-  max-width: 50%;
-  justify-content: space-between;
-  align-items: center;
-  display: flex;
-  background-color: #ffffff;
-  border: 2px solid cadetblue;
-  border-bottom-left-radius: 25px;
-  overflow: hidden;
+.CartItemCard .quantity .decrementBtn, .CartItemCard .quantity .incrementBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    font-size: 1.4rem;
+    transition: transform 0.1s;
 }
+
+.CartItemCard .quantity .decrementBtn:active, .CartItemCard .quantity .incrementBtn:active {
+    opacity: 0.6;
+    transform: scale(0.8);
+}
+
+.CartItemCard .quantity .decrementBtn:hover, .CartItemCard .quantity .incrementBtn:hover {
+    -webkit-box-shadow: 0px 0px 5px 1px rgba(95, 158, 160, 0.5);
+    -moz-box-shadow: 0px 0px 5px 1px rgba(95, 158, 160, 0.5);
+    box-shadow: 0px 0px 5px 1px rgba(95, 158, 160, 0.5);
+}
+
+.CartItemCard .quantity .decrementBtn:hover:disabled, .CartItemCard .quantity .incrementBtn:hover:disabled {
+    box-shadow: none;
+}
+
+.CartItemCard {
+    margin: 10px auto;
+    max-width: 50%;
+    align-items: center;
+    display: flex;
+    border-radius: 18px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.CartItemCard:hover {
+    -webkit-box-shadow: 0px 0px 5px 1px rgba(95, 158, 160, 0.8);
+    -moz-box-shadow: 0px 0px 5px 1px rgba(95, 158, 160, 0.8);
+    box-shadow: 0px 0px 5px 1px rgba(95, 158, 160, 0.8);
+}
+
 .CartItemCard img {
-  max-width: 20%;
+    max-width: 20%;
+    padding-left: 10px;
+}
+
+.CartItemCard .description {
+    margin: 0 auto 10px 20px;
+}
+
+.CartItemCard .description .removeBtn {
+    padding: 3px 10px;
+    border-radius: 30px;
+}
+
+.CartItemCard .description .removeBtn:hover {
+    background-color: cadetblue;
+    color: aliceblue;
+}
+
+.CartItemCard .quantity {
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.CartItemCard .quantity p {
+    min-width: 20px;
+    text-align: center;
+}
+
+.CartItemCard .quantity .decrementBtn {
+    padding-bottom: 4px;
 }
 
 /*# sourceMappingURL=CartItem.module.css.map */

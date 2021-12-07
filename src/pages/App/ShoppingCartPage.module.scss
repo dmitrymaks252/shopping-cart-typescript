@@ -1,0 +1,23 @@
+.header {
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  color: rgb(220 228 229);
+  background-color: #084047;
+
+}
+
+.loading {
+  margin-left: 45vw;
+  font-size: 2rem;
+}
+
+.mainPart {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+
+  .totalAndForm {
+    margin: 10px 10px 0 0;
+  }
+}

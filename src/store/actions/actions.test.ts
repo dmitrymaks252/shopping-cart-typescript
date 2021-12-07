@@ -1,7 +1,7 @@
 import {
   addProduct,
   changeQuantity,
-  deleteProduct,
+  removeProduct,
   loadProducts,
   loadProductsFailure,
   loadProductsSuccess
@@ -38,24 +38,24 @@ describe("Cart actions", () => {
     const expectedAction: ActionTypes = {
       type: actionTypes.CHANGE_QUANTITY,
       payload: {id: 1, quantityChanger: 1}
-    }
-    expect(changeQuantity({quantityChanger: 1, id: 1})).toEqual(expectedAction)
+    };
+    expect(changeQuantity({quantityChanger: 1, id: 1})).toEqual(expectedAction);
   });
 
-  it('deleteProduct() should delete an item with the passed id', ()=> {
+  it("removeProduct() should delete an item with the passed id", () => {
     const expectedAction: ActionTypes = {
-      type: actionTypes.DELETE_PRODUCT,
+      type: actionTypes.REMOVE_PRODUCT,
       payload: {id: 1}
-    }
-    expect(deleteProduct({id: 1})).toEqual(expectedAction)
-  })
+    };
+    expect(removeProduct({id: 1})).toEqual(expectedAction);
+  });
 
-  it('addProduct() should add new item to the cart', ()=> {
+  it("addProduct() should add new item to the cart", () => {
     const expectedAction: ActionTypes = {
       type: actionTypes.ADD_PRODUCT,
-      payload: {name: 'Test', price: 1, quantity: 1}
-    }
-    expect(addProduct({name: 'Test', price: 1, quantity: 1})).toEqual(expectedAction)
-  })
+      payload: {name: "Test", price: 1, quantity: 1}
+    };
+    expect(addProduct({name: "Test", price: 1, quantity: 1})).toEqual(expectedAction);
+  });
 
 });

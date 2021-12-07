@@ -1,8 +1,22 @@
 html {
-    font-family: 'Outfit', sans-serif;
-}
+  font-family: 'Outfit', sans-serif;
 
-body {
+  body {
     margin: 0;
     padding: 0;
+    background-color: rgba(8, 64, 71, 0.14);
+
+    button {
+      font-family: "Outfit", sans-serif;
+      cursor: pointer;
+      border: none;
+
+    }
+
+    input {
+      font-family: "Outfit", sans-serif;
+    }
+  }
+
+
 }
