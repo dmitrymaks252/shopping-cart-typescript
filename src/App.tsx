@@ -10,7 +10,7 @@ const App: FC = () => {
       <Provider store={store}>
         <BrowserRouter>
           <Routes>
-            <Route path={"/"} element={<ShoppingCartPage/>}/>
+            <Route path={"/shopping-cart-typescript"} element={<ShoppingCartPage/>}/>
           </Routes>
         </BrowserRouter>
       </Provider>

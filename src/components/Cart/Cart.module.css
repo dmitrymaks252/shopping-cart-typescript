@@ -1,7 +1,8 @@
 .emptyCart {
-    min-width: 40vw;
-    margin: 100px;
-    font-size: 1.2rem;
+  min-width: 40vw;
+  margin: 100px;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 /*# sourceMappingURL=Cart.module.css.map */

@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { FieldValues, UseFormRegister } from "react-hook-form";
-
+import s from './Input.module.scss'
 type PropsType = {
   label: string
   type: "string" | "number"
@@ -18,6 +18,7 @@ export const Input: FC<PropsType> = ({
   const stringInput = {required};
   return (
     <input
+      className={s.inputField}
       placeholder={label}
       type={type}
       {...register(
