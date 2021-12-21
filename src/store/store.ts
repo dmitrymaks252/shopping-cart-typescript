@@ -1,7 +1,8 @@
 import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
-import cartReducer from "./reducers/cartReducer";
 import { composeWithDevTools } from "redux-devtools-extension";
+
+import cartReducer from "./reducers/cartReducer";
 import rootSaga from "./sagas";
 
 

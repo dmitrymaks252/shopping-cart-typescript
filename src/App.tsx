@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
+
 import store from "./store/store";
 import ShoppingCartPage from "./pages/App/ShoppingCartPage";
 

@@ -1,9 +1,12 @@
 import { FC } from "react";
 import { useForm } from "react-hook-form";
+import {ErrorMessage} from "@hookform/error-message"
+
 import { Input } from "../Input/Input";
 import { useAppDispatch } from "../../hooks/hooks";
 import { FormValuesType } from "../../store/types";
 import { addProduct } from "../../store/actions/actions";
+
 import s from "./AddNewItemForm.module.scss";
 
 
@@ -27,44 +30,28 @@ export const AddNewItemForm: FC = () => {
         <Input
           label={"name"}
           type={"string"}
-          required
           register={register}
         />
-        {errors.name && (<p className={s.requiredInput}>Field is required </p>)}
+        <ErrorMessage errors={errors} name={'name'} as={<p className={s.requiredInput}/>}/>
       </label>
       <label>
         Price:
         <Input
           type={"number"}
           label={"price"}
-          required
           register={register}
         />
-        {errors.price?.type === "required"
-          ? <p className={s.requiredInput}>Field is required</p>
-          : errors.price?.type === "min"
-            ? <p className={s.requiredInput}>Price cannot be below zero</p>
-            : errors.price?.type === "max"
-              ? <p className={s.requiredInput}>Maximum number length is 10 digits</p>
-              : null
-        }
+        <ErrorMessage errors={errors} name={'price'} as={<p className={s.requiredInput}/>}/>
       </label>
       <label>
         Quantity:
         <Input
           type={"number"}
           label={"quantity"}
-          required
           register={register}
         />
-        {errors.quantity?.type === "required"
-          ? <p className={s.requiredInput}>Field is required</p>
-          : errors.quantity?.type === "min"
-            ? <p className={s.requiredInput}>Quantity cannot be below zero</p>
-            : errors.quantity?.type === "max"
-              ? <p className={s.requiredInput}>Maximum number length is 10 digits</p>
-              : null
-        }
+        <ErrorMessage errors={errors} name={'quantity'} as={<p className={s.requiredInput}/>}/>
+
       </label>
       <button className={s.addNewProductBtn}>Add new item</button>
     </form>

@@ -1,6 +1,7 @@
-import { takeLatest, call, put, all } from "redux-saga/effects";
-import { actionTypes, CartProductType } from "../types";
 import axios, { AxiosResponse } from "axios";
+import { takeLatest, call, put, all } from "redux-saga/effects";
+
+import { actionTypes, CartProductType } from "../types";
 import { loadProductsFailure, loadProductsSuccess } from "../actions/actions";
 
 function* workerSaga() {

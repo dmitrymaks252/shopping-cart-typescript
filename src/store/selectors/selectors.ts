@@ -1,6 +1,7 @@
+import { createSelector } from "reselect";
+
 import { RootState } from "../store";
 import { CartProductType } from "../types";
-import { createSelector } from "reselect";
 
 export const getCartItems = (store: RootState): Array<CartProductType> => store.data;
 

@@ -1,8 +1,10 @@
-import { CartProductType } from "../../store/types";
 import { FC } from "react";
-import s from "./CartItem.module.scss";
-import { useAppDispatch } from "../../hooks/hooks";
+
 import { changeQuantity, removeProduct } from "../../store/actions/actions";
+import { CartProductType } from "../../store/types";
+import { useAppDispatch } from "../../hooks/hooks";
+
+import s from "./CartItem.module.scss";
 
 type PropsType = {
   item: CartProductType

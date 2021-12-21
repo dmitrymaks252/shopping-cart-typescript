@@ -1,21 +1,37 @@
 import { FC } from "react";
 import { FieldValues, UseFormRegister } from "react-hook-form";
+
 import s from './Input.module.scss'
+
 type PropsType = {
   label: string
   type: "string" | "number"
   register: UseFormRegister<FieldValues>
-  required: boolean
+
 }
 
 export const Input: FC<PropsType> = ({
                                        label,
                                        type,
-                                       register,
-                                       required = true
+                                       register
                                      }) => {
-  const numberInput = {required, min: 1, max: 1e9, valueAsNumber: true};
-  const stringInput = {required};
+  const required = {
+      value: true, message: `Field is required`
+  }
+  const numberInput = {
+    required: required,
+    min: {
+      value: 1,
+      message: `${label} cannot be below zero`
+    },
+    max: {
+      value: 1e6,
+      message: `Max valid is one million`
+    },
+    valueAsNumber: true
+  };
+  const stringInput = {required: required};
+
   return (
     <input
       className={s.inputField}

@@ -1,9 +1,11 @@
-import { testCartItem as item } from "../../store/reducers/cartReducer.test";
-import { CartItem } from "./CartItem";
-import { changeQuantity, removeProduct } from "../../store/actions/actions";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import createMockStore from "redux-mock-store";
+
+import { CartItem } from "./CartItem";
+import { testCartItem as item } from "../../store/reducers/cartReducer.test";
+import { changeQuantity, removeProduct } from "../../store/actions/actions";
+
 
 jest.mock("../../store/actions/actions");
 const mockedStore = createMockStore([]);
@@ -18,10 +20,10 @@ describe("<CartItem/> component", () => {
         <CartItem item={item}/>
       </Provider>
     );
-    expect(screen.getByTitle("name")).toBeTruthy();
-    expect(screen.getByText(/price/i)).toBeTruthy();
-    expect(screen.getByText(/subtotal/i)).toBeTruthy();
-    expect(screen.getByTitle("quantity")).toBeTruthy();
+    expect(screen.getByTitle("name")).toBeInTheDocument();
+    expect(screen.getByText(/price/i)).toBeInTheDocument();
+    expect(screen.getByText(/subtotal/i)).toBeInTheDocument();
+    expect(screen.getByTitle("quantity")).toBeInTheDocument();
   });
 
   it("Should dispatch an incrementing changeQuantity() action on click", () => {
@@ -63,6 +65,7 @@ describe("<CartItem/> component", () => {
         <CartItem item={item}/>
       </Provider>
     );
+    expect(removeProduct).not.toHaveBeenCalled()
     fireEvent.click(screen.getByTitle("remove"));
     expect(removeProduct).toHaveBeenCalledTimes(1);
     expect(removeProduct).toHaveBeenCalledWith({id: 1});
