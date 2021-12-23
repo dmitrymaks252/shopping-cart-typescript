@@ -4,7 +4,6 @@
   text-align: center;
   color: rgb(220 228 229);
   background-color: #084047;
-
 }
 
 .loading {
@@ -21,6 +20,15 @@
     margin: 10px 10px 0 0;
     position: absolute;
     right: 50px;
+  }
 
+  @media only screen and (min-width: 1500px) {
+    .totalAndForm {
+      font-size: 1.2em;
+
+      button {
+        font-size: 1em;
+      }
+    }
   }
 }
